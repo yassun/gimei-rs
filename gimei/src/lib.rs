@@ -38,4 +38,5 @@ pub fn load_yaml(path: &str) -> Vec<yaml_rust::Yaml> {
     YamlLoader::load_from_str(&fs::read_to_string(path).unwrap()).unwrap()
 }
 
+#[cfg(feature = "derive")]
 pub use gimei_derive::Gimei;
