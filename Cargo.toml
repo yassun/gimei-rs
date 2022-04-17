@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "gimei",
+    "gimei_derive",
+]

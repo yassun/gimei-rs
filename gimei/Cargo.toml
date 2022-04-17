@@ -1,0 +1,33 @@
+[package]
+edition = "2021"
+name = "gimei"
+publish = false
+version = "0.1.0"
+
+[dependencies]
+gimei_derive = {path = "../gimei_derive", optional = true}
+rand = "*"
+once_cell = "*"
+yaml-rust = "*"
+
+[dev-dependencies]
+gimei = { path = ".", features = ["derive"] }
+
+[features]
+# Provide derive(Gimei) macros.
+derive = ["gimei_derive"]
+
+[[example]]
+name = "address"
+path = "examples/address.rs"
+required-features = ["derive"]
+
+[[example]]
+name = "name"
+path = "examples/name.rs"
+required-features = ["derive"]
+
+[[example]]
+name = "derive"
+path = "examples/derive.rs"
+required-features = ["derive"]
