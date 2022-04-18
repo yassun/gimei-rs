@@ -1,7 +1,7 @@
 # Gimei
 
 A Rust library for generating gimei data.
-Rust version of [gimei](https://github.com/willnet/gime.
+Rust version of [gimei](https://github.com/willnet/gimei)
 
 ## Installation
 
