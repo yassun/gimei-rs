@@ -1,24 +1,3 @@
-# Gimei
-
-A Rust library for generating gimei data.
-Rust version of [gimei](https://github.com/willnet/gimei)
-
-## Installation
-
-Default (`rand` is required):
-```toml
-[dependencies]
-gimei = "*"
-rand = "*"
-```
-If you want to use `#[derive(Gimei)]`:
-```toml
-gimei = { version = "*", features=['derive']}
-```
-
-## Usage
-
-```
 use gimei::address::Address;
 use gimei::name::Name;
 use gimei::{Dummy, Gimake, Gimei, Gimeiker};
@@ -70,4 +49,3 @@ fn main() {
         println!("from fixed seed {:#?}", v);
     }
 }
-```

@@ -31,3 +31,8 @@ required-features = ["derive"]
 name = "derive"
 path = "examples/derive.rs"
 required-features = ["derive"]
+
+[[example]]
+name = "usage"
+path = "examples/usage.rs"
+required-features = ["derive"]
