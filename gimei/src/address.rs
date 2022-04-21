@@ -1,10 +1,9 @@
 use once_cell::sync::Lazy;
 use rand::{self, prelude::SliceRandom, Rng};
-
-use crate::load_yaml;
+use yaml_rust::YamlLoader;
 
 pub static ADDRESS_DATA: Lazy<Vec<yaml_rust::Yaml>> =
-    Lazy::new(|| load_yaml("gimei/src/data/addresses.yml"));
+    Lazy::new(|| YamlLoader::load_from_str(include_str!("data/addresses.yml")).unwrap());
 
 #[derive(Debug, Default)]
 pub struct Address {

@@ -1,7 +1,4 @@
-use std::fs;
-
 use rand::Rng;
-use yaml_rust::YamlLoader;
 
 pub mod address;
 pub mod gender;
@@ -32,10 +29,6 @@ pub trait Gimake: Sized {
 
 pub trait Dummy {
     fn with_rng<R: Rng + ?Sized>(rng: &mut R) -> Self;
-}
-
-pub fn load_yaml(path: &str) -> Vec<yaml_rust::Yaml> {
-    YamlLoader::load_from_str(&fs::read_to_string(path).unwrap()).unwrap()
 }
 
 #[cfg(feature = "derive")]

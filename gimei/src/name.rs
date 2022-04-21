@@ -1,12 +1,11 @@
 use once_cell::sync::Lazy;
 use rand::{self, prelude::SliceRandom, Rng};
+use yaml_rust::YamlLoader;
 
 use crate::gender::Gender;
 
-use crate::load_yaml;
-
 pub static NAME_DATA: Lazy<Vec<yaml_rust::Yaml>> =
-    Lazy::new(|| load_yaml("gimei/src/data/names.yml"));
+    Lazy::new(|| YamlLoader::load_from_str(include_str!("data/names.yml")).unwrap());
 
 #[derive(Debug, Default)]
 pub struct Name {
