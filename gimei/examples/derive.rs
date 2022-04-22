@@ -10,6 +10,15 @@ use rand::SeedableRng;
 struct NameExample {
     pub example: String,
 
+    #[gimei(generator = "name_with_rng.kanji()")]
+    pub kanji: String,
+
+    #[gimei(generator = "name_with_rng.hiragana()")]
+    pub hiragana: String,
+
+    #[gimei(generator = "name_with_rng.katakana()")]
+    pub katakana: String,
+
     #[gimei(generator = "name_with_rng.last.kanji")]
     pub last_kanji: String,
 

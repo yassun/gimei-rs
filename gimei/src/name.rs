@@ -84,4 +84,51 @@ impl Name {
             gender,
         }
     }
+
+    pub fn kanji(&self) -> String {
+        format!("{} {}", self.last.kanji, self.first.kanji)
+    }
+
+    pub fn katakana(&self) -> String {
+        format!("{} {}", self.last.katakana, self.first.katakana)
+    }
+
+    pub fn hiragana(&self) -> String {
+        format!("{} {}", self.last.hiragana, self.first.hiragana)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_kanji() {
+        let name = Name::new();
+
+        assert_eq!(
+            name.kanji(),
+            format!("{} {}", name.last.kanji, name.first.kanji)
+        );
+    }
+
+    #[test]
+    fn test_katakana() {
+        let name = Name::new();
+
+        assert_eq!(
+            name.katakana(),
+            format!("{} {}", name.last.katakana, name.first.katakana)
+        );
+    }
+
+    #[test]
+    fn test_hiragana() {
+        let name = Name::new();
+
+        assert_eq!(
+            name.hiragana(),
+            format!("{} {}", name.last.hiragana, name.first.hiragana)
+        );
+    }
 }
