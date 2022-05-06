@@ -1,5 +1,7 @@
 # Gimei
 
+test
+
 A Rust library for generating gimei data.
 Rust version of [gimei](https://github.com/willnet/gimei)
 
