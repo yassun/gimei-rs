@@ -92,4 +92,70 @@ impl Address {
             },
         }
     }
+
+    pub fn kanji(&self) -> String {
+        format!(
+            "{}{}{}",
+            self.prefecture.kanji, self.city.kanji, self.town.kanji
+        )
+    }
+
+    pub fn katakana(&self) -> String {
+        format!(
+            "{}{}{}",
+            self.prefecture.katakana, self.city.katakana, self.town.katakana
+        )
+    }
+
+    pub fn hiragana(&self) -> String {
+        format!(
+            "{}{}{}",
+            self.prefecture.hiragana, self.city.hiragana, self.town.hiragana
+        )
+    }
+}
+
+#[cfg(test)]
+mod tests {
+
+    use super::*;
+
+    #[test]
+    fn test_kanji() {
+        let address = Address::new();
+
+        assert_eq!(
+            address.kanji(),
+            format!(
+                "{}{}{}",
+                address.prefecture.kanji, address.city.kanji, address.town.kanji
+            )
+        );
+    }
+
+    #[test]
+    fn test_katakana() {
+        let address = Address::new();
+
+        assert_eq!(
+            address.katakana(),
+            format!(
+                "{}{}{}",
+                address.prefecture.katakana, address.city.katakana, address.town.katakana
+            )
+        );
+    }
+
+    #[test]
+    fn test_hiragana() {
+        let address = Address::new();
+
+        assert_eq!(
+            address.hiragana(),
+            format!(
+                "{}{}{}",
+                address.prefecture.hiragana, address.city.hiragana, address.town.hiragana
+            )
+        );
+    }
 }
