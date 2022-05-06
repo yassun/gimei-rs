@@ -1,5 +1,10 @@
 # Gimei
 
+[![GitHub Actions][gh-image]][gh-checks]
+
+[gh-image]: https://github.com/yassun/gimei-rs/actions/workflows/ci.yml/badge.svg
+[gh-checks]: https://github.com/yassun/gimei-rs/actions?query=workflow%3ACI
+
 A Rust library for generating gimei data.
 Rust version of [gimei](https://github.com/willnet/gimei)
 
