@@ -77,11 +77,38 @@ pub fn derive_self_name(input: proc_macro::TokenStream) -> proc_macro::TokenStre
                     })
                     .collect();
 
+                let mut name_with_rng = false;
+                let mut address_with_rng = false;
+
+                let rng_with_statements: Vec<_> = fields
+                    .iter()
+                    .filter_map(|f| {
+                        if let Some(ref expr) = f.generator {
+                            if let Some(index) = expr.find("name_with_rng") {
+                                if index == 0 && !name_with_rng {
+                                    name_with_rng = true;
+                                    return Some(quote! {
+                                        let name_with_rng = Name::new_with_rand(rng);
+                                    });
+                                }
+                            }
+                            if let Some(index) = expr.find("address_with_rng") {
+                                if index == 0 && !address_with_rng {
+                                    address_with_rng = true;
+                                    return Some(quote! {
+                                        let address_with_rng = Address::new_with_rand(rng);
+                                    });
+                                }
+                            }
+                        }
+                        None
+                    })
+                    .collect();
+
                 let impl_dummy = quote! {
                     impl Dummy for #receiver_name {
                         fn with_rng<R: rand::Rng + ?Sized>(rng: &mut R) -> Self {
-                            let name_with_rng = Name::new_with_rand(rng);
-                            let address_with_rng = Address::new_with_rand(rng);
+                            #(#rng_with_statements)*
 
                             #(#let_statements)*
                             #receiver_name {
